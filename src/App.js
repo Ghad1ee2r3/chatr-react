@@ -6,6 +6,9 @@ import { Switch, Route, Redirect } from "react-router-dom";
 //component
 import ChannelsList from "./Components/ChannelList";
 import Sidebar from "./Components/Sidebar";
+import Signup from "./SignupForm";
+import Login from "./LoginForm";
+import Logout from "./Logout";
 
 function App() {
   return (
