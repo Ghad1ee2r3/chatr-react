@@ -4,7 +4,7 @@ import instance from "./instance";
 
 export const fetchChannels = () => async dispatch => {
   try {
-    const res = await instance.get("channels/");
+    const res = await instance.get("/channels/");
     const channels = res.data;
     dispatch({
       type: SET_CHANNELS,
@@ -17,7 +17,7 @@ export const fetchChannels = () => async dispatch => {
 
 export const postChannel = (channel, closeModal) => async dispatch => {
   try {
-    const res = await instance.post("channels/create/", channel);
+    const res = await instance.post("/channels/create/", channel);
     const newChannel = res.data;
     closeModal();
     dispatch({

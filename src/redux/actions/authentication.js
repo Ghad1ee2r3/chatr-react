@@ -4,10 +4,12 @@ import {SET_CURRENT_USER} from "./actionTypes";
 
 import instance from "./instance";
 
+
 const setAuthToken = token => {
     if (token) {
         Cookies.set("token", token);
         instance.defaults.headers.Authorization = `jwt ${token}`;
+        Cookies.set("token", token)
     } 
     else {
         delete instance.defaults.headers.Authorization;
@@ -56,10 +58,22 @@ const setCurrentUser = (token) => {
     const token = Cookies.get("token");
     if (token) {
         const currentTimeInSeconds = Date.now() / 1000;
-        const user = decode (token);
-        if (user.exp >= currentTimeInSeconds) {
+        const userData = decode (token);
+        if (userData.exp >= currentTimeInSeconds) {
             return setCurrentUser(token);
         }
     }
     return setCurrentUser();
 }
+export const authenticateUser = (userData, history, type) => 
+    async dispatch => {
+        try{
+            let response = await instance.post(`/${type}/`, userData)
+            let { token } = response.data
+            dispatch(setCurrentUser(token)) 
+            console.log(history)
+            history.push("/login")
+            
+        } catch (error) {
+            console.error(error)
+        } }

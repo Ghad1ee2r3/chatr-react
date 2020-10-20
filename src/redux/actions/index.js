@@ -6,7 +6,7 @@ export { fetchChannels, postChannel } from "./channels";
 
 
 // Authentication
-export { login, logout, signup ,checkForExpiredToken } from "./authentication";
+export { login, logout, signup ,checkForExpiredToken ,authenticateUser} from "./authentication";
 
 
 

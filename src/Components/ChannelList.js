@@ -31,7 +31,7 @@ const ChannelList = ({ channels,user }) => {
       <SearchBar onChange={setQuery} />
       <div className="row">
         {user?<AddChannel />:<p></p>}
-        <AddChannel />
+       
         {ChannelCardss}
       </div>
     </div>
