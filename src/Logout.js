@@ -10,6 +10,7 @@ const Logout = ({ user, logout }) => {
   );
 };
 
+
 const mapStateToProps = ({ user }) => ({ user });
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),

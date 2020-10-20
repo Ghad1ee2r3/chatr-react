@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-
 import { Link,Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { signup } from "./redux/actions";
+import { login } from "./redux/actions";
 
-
-const Signup = (props) => {
+const Login = props => {
   const [userData, setUserData] = useState({
     username: "",
-    email: "",
     password: "",
   });
 
@@ -17,13 +14,11 @@ const Signup = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    props.signup(userData)
+    props.login(userData);
   };
 
-  const { username, email, password } = userData;
+  const { username, password } = userData;
   if (props.user) return <Redirect to='/' />
-
   return (
     <div className="col-6 mx-auto">
       <div className="card my-5">
@@ -42,18 +37,6 @@ const Signup = (props) => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                value={email}
-                name="email"
-                placeholder="Email"
-                onChange={handleChange}
-              />
-            </div>
-            <div className="form-group">
               <label htmlFor="password">Password</label>
               <input
                 type="password"
@@ -67,10 +50,10 @@ const Signup = (props) => {
             </div>
 
             <button type="submit" className="btn btn-primary">
-              Signup
+              Login
             </button>
-            <Link to="/login" className="btn btn-link my-2 my-sm-0">
-              I already have an account
+            <Link to="/signup" className="btn btn-link my-2 my-sm-0">
+              Signup
             </Link>
           </form>
         </div>
@@ -78,11 +61,11 @@ const Signup = (props) => {
     </div>
   );
 };
-
-const mapStateToProps = ({user}) => ({user})
+const mapStateToProps = ({user}) => ({user});
 const mapDispatchToProps = dispatch => ({
-  signup: userData => dispatch(signup(userData))
+  login: userData => dispatch(login(userData))
 });
-
-export default connect(mapStateToProps,mapDispatchToProps)(Signup);
-
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);
