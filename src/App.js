@@ -13,24 +13,30 @@ import Logout from "./Logout";
 function App() {
   return (
     <div className="App">
-      
-      <div id="app" className="container-fluid">
-    <div className="row">
-    <div className="col-2">
+       <div className="row">
+      <div className="col-2">
         <Sidebar />
       </div>
       <div className="content col-10">
-      <Switch>
+        <Switch>
+          
           <Route path="/channels">
             <ChannelsList />
           </Route>
-          <Redirect to="/channels" />
+          <Route path="/signup">
+            <Signup />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Redirect to="/login" />
         </Switch>
+     
          
       </div>
     </div>
     </div>
-    </div>
+  
   );
 }
 
