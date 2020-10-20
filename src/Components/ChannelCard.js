@@ -8,7 +8,7 @@ const ChannelCard = ({ channel }) => (
   <div className="col-lg-4 col-md-6 col-12">
     <Link to={`/channels/${channel.id}`} className="card">
       <div className="image">
-     {/* <img src={classe.img} alt={classe.name} />*/}
+      <img src={classe.img} alt={classe.name} />
       </div>
       <div className="card-body">
         <h5 className="card-title">
