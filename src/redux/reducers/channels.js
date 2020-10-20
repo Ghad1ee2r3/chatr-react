@@ -1,10 +1,10 @@
-export { SET_CHANNELS, ADD_CHANNEL  } from "../actions";
+export { SET_CHANNELS, ADD_CHANNEL  } from "../actions/actionTypes";
 
 const initialState = [];
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_CHANNELS:
+    case SET_CHANNELS :
       const channels = action.payload;
       return channels;
 

@@ -2,21 +2,28 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Switch, Route, Redirect } from "react-router-dom";
-import ChannelsList from "./ChannelList";
+
+//component
+import ChannelsList from "./Components/ChannelList";
+import Sidebar from "./Components/Sidebar";
 
 function App() {
   return (
     <div className="App">
+      
       <div id="app" className="container-fluid">
     <div className="row">
-      <div className="col-2">
+    <div className="col-2">
+        <Sidebar />
       </div>
       <div className="content col-10">
-        <Switch>
+      <Switch>
           <Route path="/channels">
             <ChannelsList />
           </Route>
-          </Switch>
+          <Redirect to="/channels" />
+        </Switch>
+         
       </div>
     </div>
     </div>

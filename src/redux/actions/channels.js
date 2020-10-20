@@ -5,7 +5,7 @@ import instance from "./instance";
 export const fetchChannels = () => async dispatch => {
   try {
     const res = await instance.get("channels/");
-    const authors = res.data;
+    const channels = res.data;
     dispatch({
       type: SET_CHANNELS,
       payload: channels

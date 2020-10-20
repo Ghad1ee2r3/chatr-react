@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 
 // Actions
-import { postChannel } from "./redux/actions";
+import { postChannel } from "../redux/actions";
 
 const ChannelForm = ({ closeModal, postChannel }) => {
   const [channel, setChannel] = useState({
-    name: "",
+    name: ""
    
   });
 
@@ -28,16 +28,21 @@ const ChannelForm = ({ closeModal, postChannel }) => {
           <input
             type="text"
             className="form-control"
-            name="first_name"
+            name="name"
             onChange={onTextchange}
           />
         </div>
 
+        <button type="submit" className="btn btn-primary">
+            create
+            </button>
        
-       
-        <input type="submit" />
+        
       </form>
     </div>
+
+
+
   );
 };
 

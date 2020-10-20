@@ -3,7 +3,7 @@ import Modal from "react-responsive-modal";
 
 import ChannelForm from "./ChannelForm";
 
-const AddChannelCard = () => {
+const AddChannel = () => {
   const [open, setOpen] = useState(false);
 
   const openModal = () => setOpen(true);
@@ -17,22 +17,12 @@ const AddChannelCard = () => {
           <ChannelForm closeModal={closeModal} />
         </Modal>
       </div>
-      <div className="card" onClick={openModal}>
-        <div className="image">
-          <img
-            className="card-img-top img-fluid"
-            src="https://www.pngmart.com/files/8/Plus-PNG-Image.png"
-            alt="+"
-          />
-        </div>
-        <div className="card-body">
-          <h5 className="card-title">
-            <span>Add channel</span>
-          </h5>
-        </div>
+      
+      <input type="button" onClick={openModal} value="CREATE CHANNEL" />
+       
       </div>
-    </div>
+   
   );
 };
 
-export default AddChannelCard;
+export default AddChannel;

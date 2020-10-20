@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 
 // Components
-import AddChannelCard from "./AddChannelCard";
+import AddChannel from "./AddChannel";
 import ChannelCard from "./ChannelCard";
 import SearchBar from "./SearchBar";
-import Loading from "./Loading";
+//import Loading from "./Loading";
 
-const ChannelList = ({ channels, loading,user }) => {
+const ChannelList = ({ channels,user }) => {
   const [query, setQuery] = useState("");
 
   const filterChannel = () => {
@@ -16,23 +16,23 @@ const ChannelList = ({ channels, loading,user }) => {
     });
   };
 
-  if (loading) return <Loading />;
+  //if (loading) return <Loading />;
 
-  const ChannelCards = filterChannel().map((channel) => (
+  const ChannelCardss = filterChannel().map((channel) => (
     <ChannelCard
-      key={channel.id + channel.name}
+      key={channel.id}
       channel={channel}
     />
   ));
 
   return (
-    <div className="authors">
+    <div >
       <h3>Channels</h3>
       <SearchBar onChange={setQuery} />
       <div className="row">
-        {user?<AddChannelCard />:<p></p>}
-
-        {ChannelCards}
+        {user?<AddChannel />:<p></p>}
+        <AddChannel />
+        {ChannelCardss}
       </div>
     </div>
   );
