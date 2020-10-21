@@ -27,7 +27,7 @@ const ChannelList = ({ channels, user }) => {
   return (
     <div>
       <h3>Channels</h3>
-      <SearchBar onChange={setQuery} />
+    
       <div className="row">
         <div className="col-2"> {user && <AddChannel />}</div>
         <div className="col-10"></div>

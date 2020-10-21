@@ -19,6 +19,21 @@ code {
   height: 100vh;
   max-width: inherit;
   border-right: 2px solid #555;
+  position: fixed;
+  width: 250px;
+  overflow-y: scroll;
+  top: 0;
+  bottom: 0;
+}
+
+.input1 {
+  height: 40px;
+  font-size: 16px;
+  min-width: 90%;
+  padding-left: 15px;
+  background-color: #fff;
+  border-radius: 15px;
+  border: none;
 }
 
 #sidebar::-webkit-scrollbar {
@@ -84,6 +99,15 @@ code {
 
 .card {
   margin: 20px;
+}
+
+img {
+  border-radius: 50%;
+  width: 50px;
+  float: left;
+}
+.name {
+  float: right;
 }
 
 .author img {
