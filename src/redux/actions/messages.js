@@ -2,8 +2,9 @@
 import instance from "./instance";
 
  //messages
- import { SET_MESSAGES} from "./actionTypes";
+ import { SET_MESSAGES,ADD_MESSAGES} from "./actionTypes";
 
+ //fetch messages from api
  export const fetchMessages = (CHANNEL_ID) => async dispatch => {
     try {
       const res = await instance.get(`channels/${CHANNEL_ID}`);
@@ -17,3 +18,18 @@ import instance from "./instance";
       console.error(error);
     }
   };
+
+  //post messages from api
+export const sendMessages = (newMessage,CHANNEL_ID) => async (dispatch) => {
+  try {
+    const res = await instance.post(`channels/${CHANNEL_ID}/send/`, newMessage);
+    const message = res.data;
+    dispatch({
+      type: ADD_MESSAGES,
+      payload: message,
+      //channel=channel
+    });
+  }catch (error) {
+    console.error(error);
+  }
+};
