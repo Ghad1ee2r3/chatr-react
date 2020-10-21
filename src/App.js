@@ -10,19 +10,17 @@ import Signup from "./SignupForm";
 import Login from "./LoginForm";
 
 
-const App = () =>
- // list=props.list
-(
- 
+const App = () => (
   <div id="app" className="container-fluid">
-    
     <div className="row">
       <div className="col-2">
-      <Sidebar />
+        <Sidebar />
       </div>
       <div className="content col-10">
         <Switch>
-
+        <Route path="/channels/:CHANNEL_ID">
+          <MessagesList />
+          </Route>
           <Route path="/channels">
           <ChannelsList />
           </Route>
