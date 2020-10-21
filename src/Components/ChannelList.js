@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import ChannelCard from "./ChannelCard";
 import SearchBar from "./SearchBar";
 import Sidebar from "./Sidebar";
-import App from "../App";
+import AddChannel from "./AddChannel";
 //import Loading from "./Loading";
 
 const ChannelList = ({ channels, user }) => {

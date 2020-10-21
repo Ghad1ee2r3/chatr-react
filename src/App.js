@@ -7,7 +7,7 @@ import Login from "./LoginForm";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 //component
-import ChannelsList from "./Components/ChannelList";
+import Home from "./Home";
 import MessagesList from "./Components/MessagesList";
 import Sidebar from "./Components/Sidebar";
 

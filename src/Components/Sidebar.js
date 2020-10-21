@@ -65,7 +65,7 @@ const Sidebar = ({ user, logout, channels }) => {
   );
 };
 
-const mapStateToProps = ({ user }) => ({ user });
+const mapStateToProps = ({ user, channels }) => ({ user, channels });
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
 });
