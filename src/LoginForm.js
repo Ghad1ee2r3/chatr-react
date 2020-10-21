@@ -18,7 +18,7 @@ const Login = props => {
   };
 
   const { username, password } = userData;
-  if (props.user) return <Redirect to='/' />
+  if (props.user) return <Redirect to='/channels' />
   return (
     <div className="col-6 mx-auto">
       <div className="card my-5">

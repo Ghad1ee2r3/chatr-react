@@ -1,27 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Switch, Route, Redirect } from "react-router-dom";
 
 //component
 import ChannelsList from "./Components/ChannelList";
+import MessagesList from "./Components/MessagesList";
 import Sidebar from "./Components/Sidebar";
 import Signup from "./SignupForm";
 import Login from "./LoginForm";
-import Logout from "./Logout";
 
-function App() {
-  return (
-    <div className="App">
-       <div className="row">
+
+const App = () => (
+  <div id="app" className="container-fluid">
+    <div className="row">
       <div className="col-2">
         <Sidebar />
       </div>
       <div className="content col-10">
         <Switch>
-          
+
           <Route path="/channels">
-            <ChannelsList />
+          <ChannelsList />
           </Route>
           <Route path="/signup">
             <Signup />
@@ -31,13 +30,9 @@ function App() {
           </Route>
           <Redirect to="/login" />
         </Switch>
-     
-         
       </div>
     </div>
-    </div>
-  
-  );
-}
+  </div>
+);
 
 export default App;

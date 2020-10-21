@@ -8,7 +8,6 @@ import { signup } from "./redux/actions";
 const Signup = (props) => {
   const [userData, setUserData] = useState({
     username: "",
-    email: "",
     password: "",
   });
 
@@ -17,11 +16,10 @@ const Signup = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     props.signup(userData)
   };
 
-  const { username, email, password } = userData;
+  const { username,password } = userData;
   if (props.user) return <Redirect to='/' />
 
   return (
@@ -38,18 +36,6 @@ const Signup = (props) => {
                 value={username}
                 name="username"
                 placeholder="Username"
-                onChange={handleChange}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                value={email}
-                name="email"
-                placeholder="Email"
                 onChange={handleChange}
               />
             </div>
