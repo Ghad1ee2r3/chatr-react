@@ -1,6 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+//Authentication
+import Signup from "./SignupForm";
+import Login from "./LoginForm";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 //component
@@ -18,6 +21,12 @@ function App() {
       </div>
       <div className="content col-10">
       <Switch>
+      <Route path="/signup">
+            <Signup />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
           <Route path="/channels">
             <ChannelsList />
           </Route>
