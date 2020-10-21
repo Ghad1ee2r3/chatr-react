@@ -10,8 +10,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import ChannelsList from "./Components/ChannelList";
 import MessagesList from "./Components/MessagesList";
 import Sidebar from "./Components/Sidebar";
-import Signup from "./SignupForm";
-import Login from "./LoginForm";
+
 
 
 const App = () => (

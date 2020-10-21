@@ -4,19 +4,31 @@ import { connect } from "react-redux";
 import Login from "../LoginForm";
 import Logout from '../Logout';
 import { logout } from "../redux/actions";
+import SearchBar from "./SearchBar";
 // Logo
 //import logo from "./assets/theindex.svg";
 
 //component
 import ChannelList from "./ChannelList";
 import ChannelCard from "./ChannelCard";
+import AddChannel from "./AddChannel";
+
 
 const Sidebar = ({ user, logout, channels }) => {
-  const ChannelCardss = channels.map((channel) => (
+  
+  const [query, setQuery] = useState("");
+  const filterChannel = () => {
+    return channels.filter((channel) => {
+      return channel.name.toLowerCase().includes(query.toLowerCase());
+    });
+  };
+  const ChannelCardss = filterChannel().map((channel) => (
     <ChannelCard key={channel.id} channel={channel} />
   ));
   return (
     <div id="sidebar">
+      <SearchBar onChange={setQuery} />
+     
       <section>
         <h4 className="menu-item active">
           <NavLink to="/channels">Channel</NavLink>
