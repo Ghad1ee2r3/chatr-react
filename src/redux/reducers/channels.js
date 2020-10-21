@@ -1,4 +1,4 @@
-import { SET_CHANNELS, ADD_CHANNEL  } from "../actions/actionTypes";
+import { SET_CHANNELS, ADD_CHANNEL } from "../actions";
 
 const initialState = [];
 

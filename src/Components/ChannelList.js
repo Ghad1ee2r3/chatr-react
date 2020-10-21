@@ -30,8 +30,7 @@ const ChannelList = ({ channels,user }) => {
       <h3>Channels</h3>
       <SearchBar onChange={setQuery} />
       <div className="row">
-        {user?<AddChannel />:<p></p>}
-        <AddChannel />
+        {user && <AddChannel />}
         {ChannelCardss}
       </div>
     </div>
@@ -40,7 +39,7 @@ const ChannelList = ({ channels,user }) => {
 
 const mapStateToProps = ({ channels,user }) => ({
     channels,
- // loading: !authors.length,
+ // loading: !channels.length,
   user
 });
 
