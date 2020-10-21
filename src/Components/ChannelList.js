@@ -27,6 +27,7 @@ const ChannelList = ({ channels,user }) => {
       channel={channel}
     />
   ));
+  
 
   return (
     <div >

@@ -2,9 +2,10 @@ import React, { useState }from "react";
 import { NavLink, Link } from "react-router-dom";
 import { connect } from "react-redux";
 
+
+import Login from "../LoginForm";
+import Logout from '../Logout';
 import {logout} from '../redux/actions';
-// Logo
-//import logo from "./assets/theindex.svg";
 
 //component
 import ChannelCard from "./ChannelCard";
@@ -19,12 +20,15 @@ const Sidebar = ({  user,logout , list  }) =>
         <NavLink to="/channels">Channel</NavLink>
       </h4>
     </section>
+
     <div className="menu-item active">
   
   {user ?
+  <div>
   <Link to="/logout" className="btn btn-dark m-4 float-left" onClick={() => logout()}>
       Logout
     </Link>
+    </div>
     :
   <div><Link to="/login" className="btn btn-info m-2 float-left">
       Login
@@ -34,6 +38,7 @@ const Sidebar = ({  user,logout , list  }) =>
       Signup
     </Link></div>}
   </div>
+
   <section>{list}</section>
   </div>
 );
