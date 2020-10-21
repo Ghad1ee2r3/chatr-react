@@ -5,9 +5,11 @@ import { connect } from "react-redux";
 import AddChannel from "./AddChannel";
 import ChannelCard from "./ChannelCard";
 import SearchBar from "./SearchBar";
+import Sidebar from "./Sidebar";
+import App from "../App"
 //import Loading from "./Loading";
 
-const ChannelList = ({ channels,user }) => {
+const ChannelList = ({ channels , user }) => {
   const [query, setQuery] = useState("");
 
   const filterChannel = () => {
@@ -31,8 +33,9 @@ const ChannelList = ({ channels,user }) => {
       <SearchBar onChange={setQuery} />
       <div className="row">
         {user?<AddChannel />:<p></p>}
-       
-        {ChannelCardss}
+     
+        <Sidebar list={ChannelCardss} />
+ {ChannelCardss}
       </div>
     </div>
   );

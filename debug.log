@@ -1,0 +1,6 @@
+[1021/090722.747:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1021/102929.698:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\Lenovo\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\66640a32-27f4-4687-8154-b3434a6abf0c: The system cannot find the path specified. (0x3)
+[1021/103145.313:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\Lenovo\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\3ade9808-f5b5-4869-954b-4becc602cac9: The system cannot find the path specified. (0x3)
+[1021/103501.404:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\Lenovo\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\7deb5933-403c-4b2f-84d8-03e76ee92992: The system cannot find the path specified. (0x3)
+[1021/104030.114:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\Lenovo\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\29a2c4e3-4991-4490-a9c4-4dbc1881385e: The system cannot find the path specified. (0x3)
+[1021/104037.207:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\Lenovo\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\95d8779b-bb31-401e-8a99-40af32ef720d: The system cannot find the path specified. (0x3)

@@ -15,12 +15,11 @@ function App() {
     <div className="App">
        <div className="row">
       <div className="col-2">
-        <Sidebar />
       </div>
       <div className="content col-10">
         <Switch>
           
-          <Route path="/channels">
+          <Route path="/channels/">
             <ChannelsList />
           </Route>
           <Route path="/signup">
