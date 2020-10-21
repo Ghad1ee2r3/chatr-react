@@ -18,7 +18,9 @@ const App = () => (
       </div>
       <div className="content col-10">
         <Switch>
-
+        <Route path="/channels/:CHANNEL_ID">
+          <MessagesList />
+          </Route>
           <Route path="/channels">
           <ChannelsList />
           </Route>

@@ -4,7 +4,7 @@ import thunk from "redux-thunk";
 import reducer from "./reducers";
 
 // Actions
-import {  fetchChannels ,checkForExpiredToken} from "./actions";
+import {checkForExpiredToken} from "./actions";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

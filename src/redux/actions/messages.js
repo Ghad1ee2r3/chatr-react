@@ -4,9 +4,9 @@ import instance from "./instance";
  //messages
  import { SET_MESSAGES} from "./actionTypes";
 
- export const fetchMessages = () => async dispatch => {
+ export const fetchMessages = (CHANNEL_ID) => async dispatch => {
     try {
-      const res = await instance.get("channels/");
+      const res = await instance.get(`channels/${CHANNEL_ID}`);
       //const res = await axios.get('http://127.0.0.1:8000/channels/');
       const messages = res.data;
       dispatch({
