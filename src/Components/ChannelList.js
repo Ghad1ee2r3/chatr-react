@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 // Components
 import ChannelCard from "./ChannelCard";
 import SearchBar from "./SearchBar";
+import Sidebar from "./Sidebar";
+import App from "../App";
 //import Loading from "./Loading";
 
 const ChannelList = ({ channels, user }) => {
@@ -23,8 +25,13 @@ const ChannelList = ({ channels, user }) => {
 
   return (
     <div>
-      <SearchBar onChange={setQuery} />
-      {ChannelCardss}
+      <h3>Channels</h3>
+
+      <div className="row">
+        <div className="col-2"> {user && <AddChannel />}</div>
+        <div className="col-10"></div>
+        {/* {ChannelCardss} */}
+      </div>
     </div>
   );
 };

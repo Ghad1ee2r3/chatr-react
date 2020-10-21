@@ -15,20 +15,40 @@ code {
 #sidebar {
   position: fixed;
   float: left;
-  background: #a04000;
+  background: #303030;
   height: 100vh;
   max-width: inherit;
   border-right: 2px solid #555;
+  position: fixed;
+  width: 250px;
+  overflow-y: scroll;
+  top: 0;
+  bottom: 0;
+}
+
+.input1 {
+  height: 40px;
+  font-size: 16px;
+  min-width: 90%;
+  padding-left: 15px;
+  background-color: #fff;
+  border-radius: 15px;
+  border: none;
 }
 
 #sidebar::-webkit-scrollbar {
   width: 10px;
-  background-color: #a04000;
+  background-color: #222;
 }
 
 #sidebar::-webkit-scrollbar-thumb {
   background-color: black;
   -webkit-border-radius: 1ex;
+}
+
+#sidebar .logo {
+  width: 100%;
+  padding: 30px;
 }
 
 #sidebar section > * {
@@ -53,4 +73,52 @@ code {
 
 #sidebar .menu-item a:hover {
   color: white;
+}
+
+#sidebar .menu-item a.active,
+#sidebar .menu-item a:hover {
+  border-left: 3px solid #800c0c;
+  text-decoration: underline;
+}
+
+.content {
+  padding: 50px;
+}
+
+.card,
+.card:hover {
+  transition: all 0.2s ease-out;
+  text-decoration: none;
+}
+
+.card:hover {
+  border-color: #800c0c;
+  color: #f00c0c;
+  cursor: pointer;
+}
+
+.card {
+  margin: 20px;
+}
+
+img {
+  border-radius: 50%;
+  width: 50px;
+  float: left;
+}
+.name {
+  float: right;
+}
+
+.author img {
+  height: 300px;
+}
+
+td button.btn {
+  border-color: black;
+}
+
+.spinner {
+  height: 100vh;
+  line-height: 100vh;
 }

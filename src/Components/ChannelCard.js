@@ -7,7 +7,13 @@ import { Link } from "react-router-dom";
 const ChannelCard = ({ channel }) => (
   <div>
     <Link to={`/channels/${channel.id}`}>
-      <span>{channel.name}</span>
+      <img src={channel.image_url} alt="" />
+      <div className="card-body">
+        <p className="card-title">
+          <span>{channel.name}</span>
+          <span> ,{channel.owner}</span>
+        </p>
+      </div>
     </Link>
   </div>
 );
