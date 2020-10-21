@@ -17,9 +17,11 @@ const Sidebar = ({user,logout}) => (
     <div className="menu-item active">
   
   {user ?
+  <div>
   <Link to="/logout" className="btn btn-dark m-4 float-left" onClick={() => logout()}>
       Logout
     </Link>
+    </div>
     :
   <div><Link to="/login" className="btn btn-info m-2 float-left">
       Login
