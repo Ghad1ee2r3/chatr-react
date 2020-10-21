@@ -6,8 +6,7 @@ import { postChannel } from "../redux/actions";
 
 const ChannelForm = ({ closeModal, postChannel }) => {
   const [channel, setChannel] = useState({
-    name: ""
-   
+    name: "",
   });
 
   const submitChannel = (event) => {
@@ -16,10 +15,10 @@ const ChannelForm = ({ closeModal, postChannel }) => {
   };
 
   const onTextchange = (event) =>
-  setChannel({ ...channel, [event.target.name]: event.target.value });
+    setChannel({ ...channel, [event.target.name]: event.target.value });
 
   return (
-    <div className="mt-5 p-2">
+    <div className="col-4 mt-5 p-2">
       <form onSubmit={submitChannel}>
         <div className="input-group mb-3">
           <div className="input-group-prepend">
@@ -31,18 +30,12 @@ const ChannelForm = ({ closeModal, postChannel }) => {
             name="name"
             onChange={onTextchange}
           />
-        </div>
-
-        <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             create
-            </button>
-       
-        
+          </button>
+        </div>
       </form>
     </div>
-
-
-
   );
 };
 
