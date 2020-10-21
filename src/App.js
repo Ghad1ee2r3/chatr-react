@@ -10,11 +10,15 @@ import Signup from "./SignupForm";
 import Login from "./LoginForm";
 
 
-const App = () => (
+const App = () =>
+ // list=props.list
+(
+ 
   <div id="app" className="container-fluid">
+    
     <div className="row">
       <div className="col-2">
-        <Sidebar />
+      <Sidebar />
       </div>
       <div className="content col-10">
         <Switch>
