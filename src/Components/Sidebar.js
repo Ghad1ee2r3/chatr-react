@@ -8,12 +8,8 @@ import { logout } from "../redux/actions";
 
 //component
 import ChannelList from "./ChannelList";
-import ChannelCard from "./ChannelCard";
 
-const Sidebar = ({ user, logout, channels }) => {
-  const ChannelCardss = channels.map((channel) => (
-    <ChannelCard key={channel.id} channel={channel} />
-  ));
+const Sidebar = ({ user, logout }) => {
   return (
     <div id="sidebar">
       <section>
@@ -24,14 +20,19 @@ const Sidebar = ({ user, logout, channels }) => {
       <div className="menu-item active">
         {user ? (
           <div>
-            <Link
-              to="/logout"
-              className="btn btn-dark m-4 float-left"
-              onClick={() => logout()}
-            >
-              Logout
-            </Link>
-            <Link to="/logout">{ChannelCardss}</Link>
+            <div className="row">
+              <Link
+                to="/logout"
+                className="btn btn-dark m-4 float-left"
+                onClick={() => logout()}
+              >
+                Logout
+              </Link>
+            </div>
+            <div>
+              {" "}
+              <ChannelList />
+            </div>
           </div>
         ) : (
           <div>
@@ -49,7 +50,7 @@ const Sidebar = ({ user, logout, channels }) => {
   );
 };
 
-const mapStateToProps = ({ user, channels }) => ({ user, channels });
+const mapStateToProps = ({ user }) => ({ user });
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
 });

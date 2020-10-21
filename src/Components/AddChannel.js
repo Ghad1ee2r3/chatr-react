@@ -17,11 +17,10 @@ const AddChannel = () => {
           <ChannelForm closeModal={closeModal} />
         </Modal>
       </div>
-      
+
       <input type="button" onClick={openModal} value="CREATE CHANNEL" />
-       
-      </div>
-   
+      <hr></hr>
+    </div>
   );
 };
 
