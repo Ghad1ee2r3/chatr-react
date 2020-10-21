@@ -1,5 +1,9 @@
 import React from 'react';
 import './App.css';
+
+//Authentication
+import Signup from "./SignupForm";
+import Login from "./LoginForm";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 //component
@@ -17,9 +21,12 @@ const App = () => (
         <Sidebar />
       </div>
       <div className="content col-10">
+
+      
         <Switch>
         <Route path="/channels/:CHANNEL_ID">
           <MessagesList />
+
           </Route>
           <Route path="/channels">
           <ChannelsList />

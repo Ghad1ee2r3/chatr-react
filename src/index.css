@@ -15,7 +15,7 @@ code {
 #sidebar {
   position: fixed;
   float: left;
-  background: #a04000;
+  background: #303030;
   height: 100vh;
   max-width: inherit;
   border-right: 2px solid #555;
@@ -23,12 +23,17 @@ code {
 
 #sidebar::-webkit-scrollbar {
   width: 10px;
-  background-color: #a04000;
+  background-color: #222;
 }
 
 #sidebar::-webkit-scrollbar-thumb {
   background-color: black;
   -webkit-border-radius: 1ex;
+}
+
+#sidebar .logo {
+  width: 100%;
+  padding: 30px;
 }
 
 #sidebar section > * {
@@ -53,4 +58,43 @@ code {
 
 #sidebar .menu-item a:hover {
   color: white;
+}
+
+#sidebar .menu-item a.active,
+#sidebar .menu-item a:hover {
+  border-left: 3px solid #800c0c;
+  text-decoration: underline;
+}
+
+.content {
+  padding: 50px;
+}
+
+.card,
+.card:hover {
+  transition: all 0.2s ease-out;
+  text-decoration: none;
+}
+
+.card:hover {
+  border-color: #800c0c;
+  color: #f00c0c;
+  cursor: pointer;
+}
+
+.card {
+  margin: 20px;
+}
+
+.author img {
+  height: 300px;
+}
+
+td button.btn {
+  border-color: black;
+}
+
+.spinner {
+  height: 100vh;
+  line-height: 100vh;
 }

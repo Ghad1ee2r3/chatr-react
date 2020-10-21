@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState }from "react";
 import { NavLink, Link } from "react-router-dom";
 import { connect } from "react-redux";
-
+import Login from "../LoginForm";
+import Logout from '../Logout';
 import { logout } from "../redux/actions";
 // Logo
 //import logo from "./assets/theindex.svg";
