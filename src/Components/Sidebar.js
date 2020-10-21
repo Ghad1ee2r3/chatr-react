@@ -2,9 +2,10 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { connect } from "react-redux";
 
+
+import Login from "../LoginForm";
+import Logout from '../Logout';
 import {logout} from '../redux/actions';
-// Logo
-//import logo from "./assets/theindex.svg";
 
 const Sidebar = ({user,logout}) => (
   <div id="sidebar">
@@ -14,6 +15,7 @@ const Sidebar = ({user,logout}) => (
         <NavLink to="/channels">Channel</NavLink>
       </h4>
     </section>
+
     <div className="menu-item active">
   
   {user ?
@@ -31,6 +33,7 @@ const Sidebar = ({user,logout}) => (
       Signup
     </Link></div>}
   </div>
+
   </div>
 );
 
