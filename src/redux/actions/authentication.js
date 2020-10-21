@@ -1,8 +1,9 @@
 import decode from "jwt-decode";
 import Cookies from 'js-cookie';
 import {SET_CURRENT_USER} from "./actionTypes";
-import axios from "axios"
+//import axios from "axios"
 import {fetchChannels} from "./channels"
+import {fetchMessages} from "./messages";
 
 import instance from "./instance";
 
@@ -59,6 +60,7 @@ const setCurrentUser = (token) => {
         })
 
         dispatch(fetchChannels())
+        dispatch(fetchMessages())
       }
 }
 
