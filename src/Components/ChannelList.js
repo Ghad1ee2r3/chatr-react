@@ -5,9 +5,11 @@ import { connect } from "react-redux";
 import AddChannel from "./AddChannel";
 import ChannelCard from "./ChannelCard";
 import SearchBar from "./SearchBar";
+import Sidebar from "./Sidebar";
+import App from "../App"
 //import Loading from "./Loading";
 
-const ChannelList = ({ channels,user }) => {
+const ChannelList = ({ channels, user }) => {
   const [query, setQuery] = useState("");
 
   const filterChannel = () => {
@@ -18,30 +20,29 @@ const ChannelList = ({ channels,user }) => {
 
   //if (loading) return <Loading />;
 
-  const ChannelCardss = filterChannel().map((channel) => (
-    <ChannelCard
-      key={channel.id}
-      channel={channel}
-    />
-  ));
-  
+  // const ChannelCardss = filterChannel().map((channel) => (
+  //   <ChannelCard key={channel.id} channel={channel} />
+  // ));
 
   return (
-    <div >
+    <div>
       <h3>Channels</h3>
       <SearchBar onChange={setQuery} />
       <div className="row">
-        {user && <AddChannel />}
-        {ChannelCardss}
+        <div className="col-2"> {user && <AddChannel />}</div>
+        <div className="col-10"></div>
+        {/* {ChannelCardss} */}
+
+
       </div>
     </div>
   );
 };
 
-const mapStateToProps = ({ channels,user }) => ({
-    channels,
- // loading: !channels.length,
-  user
+const mapStateToProps = ({ channels, user }) => ({
+  channels,
+  // loading: !channels.length,
+  user,
 });
 
 export default connect(mapStateToProps)(ChannelList);
