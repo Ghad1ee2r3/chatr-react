@@ -2,12 +2,10 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { connect } from "react-redux";
 
+
 import Login from "../LoginForm";
 import Logout from '../Logout';
-import {logout} from '../redux/actions/authentication';
-
-// Logo
-//import logo from "./assets/theindex.svg";
+import {logout} from '../redux/actions';
 
 const Sidebar = ({user,logout}) => (
   <div id="sidebar">
@@ -17,21 +15,25 @@ const Sidebar = ({user,logout}) => (
         <NavLink to="/channels">Channel</NavLink>
       </h4>
     </section>
-    <div className="fixed-bottom">
+
+    <div className="menu-item active">
   
-    {user ?
-    <Link to="/logout" className="btn btn-info m-2 float-left" onClick={() => logout()}>
-        Logout
-      </Link>
-      :
-    <div><Link to="/login" className="btn btn-info m-2 float-left">
-        Login
-      </Link>
- 
-      <Link to="/signup" className="btn btn-success m-2 float-left">
-        Signup
-      </Link></div>}
+  {user ?
+  <div>
+  <Link to="/logout" className="btn btn-dark m-4 float-left" onClick={() => logout()}>
+      Logout
+    </Link>
     </div>
+    :
+  <div><Link to="/login" className="btn btn-info m-2 float-left">
+      Login
+    </Link>
+
+    <Link to="/signup" className="btn btn-success m-2 float-left">
+      Signup
+    </Link></div>}
+  </div>
+
   </div>
 );
 
@@ -41,4 +43,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(Sidebar)
-
