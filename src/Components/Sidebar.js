@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState }from "react";
 import { NavLink, Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -7,7 +7,12 @@ import Login from "../LoginForm";
 import Logout from '../Logout';
 import {logout} from '../redux/actions';
 
-const Sidebar = ({user,logout}) => (
+//component
+import ChannelCard from "./ChannelCard";
+
+const Sidebar = ({  user,logout , list  }) =>
+  
+  (
   <div id="sidebar">
    
     <section>
@@ -34,10 +39,11 @@ const Sidebar = ({user,logout}) => (
     </Link></div>}
   </div>
 
+  <section>{list}</section>
   </div>
 );
 
-const mapStateToProps = ({user}) => ({user});
+const mapStateToProps = ({user }) => ({user});
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout())
 });
