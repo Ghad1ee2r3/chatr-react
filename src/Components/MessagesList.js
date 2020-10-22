@@ -10,7 +10,7 @@ import { Picker } from "emoji-mart";
 
 const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) => {
   const { CHANNEL_ID } = useParams();
-  const [msg, setMsg] = useState("");
+  const [msg, setMsg] = useState({message:""});
   const [emojiView, setEmojiView]=useState(false);
   useEffect(() => {
     getMessages(CHANNEL_ID);
@@ -37,16 +37,22 @@ const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) =>
     console.log("here sum");
     event.preventDefault();
     sendMessage({ message: msg }, CHANNEL_ID);
-    //resetinput();
+    resetinput();
   };
-  //const resetinput=() =>{
-  //  setMsg("");
-  //}
+  const resetinput=() =>{
+    setMsg({message:""});
+  }
 
-  const{ massegee}=msg
+  const{ massege}=msg
+
   const selectemoji= emoji =>{
    let obj=emoji.native
-    setMsg({ message: massegee+obj }, CHANNEL_ID)
+   console.log(obj)
+   let m=massege+obj
+   //m.toString
+   var data = JSON.stringify({m});
+   //var data = {message:m.toString()}
+    setMsg({...msg,message:m}, CHANNEL_ID)
   }
 
  
