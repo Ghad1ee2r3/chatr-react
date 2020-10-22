@@ -21,7 +21,7 @@ const Login = props => {
   if (props.user) return <Redirect to='/channels' />
   return (
     <div>
-       <h3 className="text2">   WELCOME TO CHAT  </h3>
+       <h3 className="text2">   WELCOME TO CHAT JOIN US </h3>
     <div className="col-6 mx-auto">
       <div className="card my-5">
         <div className="card-body">

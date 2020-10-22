@@ -31,7 +31,7 @@ const Sidebar = ({ user, logout, channels }) => {
      
       <section>
         <h4 className="menu-item active">
-          <NavLink to="/channels">Channel</NavLink>
+          <NavLink to="/channels">Create Channel</NavLink>
         </h4>
       </section>
       <div className="menu-item active">
