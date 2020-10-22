@@ -56,6 +56,16 @@ code {
 
   color: #ffffff;
 }
+.message-item {
+  /*card of each message*/
+  display: flex;
+
+  padding-right: 30px;
+  position: relative;
+  margin: 10px 0;
+  width: 50%;
+  background-color: #c8c8c8;
+}
 
 #sidebar::-webkit-scrollbar {
   width: 10px;

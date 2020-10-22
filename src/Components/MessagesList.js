@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchMessages, sendMessages } from "../redux/actions";
 
-const MessagesList = ({ channels, messages, getMessages, sendMessage }) => {
+const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) => {
   const { CHANNEL_ID } = useParams();
   const [msg, setMsg] = useState("");
 
@@ -19,7 +19,9 @@ const MessagesList = ({ channels, messages, getMessages, sendMessage }) => {
   //messages of one channel
   //const channelMessages = messages.filter((message) => message.channel == channel.id);
   const allmessages = messages.map((m) => (
-    <div>
+    <div className="message-item ">
+      <p className=".message-item-content">
+      {user.username==m.username?"me:": m.username+":"}</p>
       <p>
         {m.message} at {m.timestamp}
       </p>
@@ -53,10 +55,11 @@ const MessagesList = ({ channels, messages, getMessages, sendMessage }) => {
   );
 };
 
-const mapStateToProps = ({ channels, messages }) => {
+const mapStateToProps = ({ channels, messages ,user }) => {
   return {
     channels,
     messages,
+    user
   };
 };
 const mapDispatchToProps = (dispatch) => {
