@@ -1,10 +1,14 @@
 import decode from "jwt-decode";
 import Cookies from 'js-cookie';
-import {SET_CURRENT_USER} from "./actionTypes";
-import axios from "axios"
+import {SET_CURRENT_USER , SET_ERRORS} from "./actionTypes";
+//import axios from "axios"
 import {fetchChannels} from "./channels"
+import {fetchMessages} from "./messages";
 
 import instance from "./instance";
+
+import { resetErrors } from "./errors";
+
 
 const setAuthToken = token => {
     if (token) {
@@ -24,9 +28,14 @@ export const login = (userData) => {
            // const responce = await axios.post('http://127.0.0.1:8000/login/', userData);
             console.log(responce.data)
             const {token} = responce.data
+            dispatch(resetErrors());
             dispatch(setCurrentUser(token));
         } catch (err) {
             console.error(err);
+            dispatch({
+                type: SET_ERRORS,
+                payload: err.response.data,
+              });
         }
     }
 };
@@ -59,6 +68,7 @@ const setCurrentUser = (token) => {
         })
 
         dispatch(fetchChannels())
+        dispatch(fetchMessages())
       }
 }
 

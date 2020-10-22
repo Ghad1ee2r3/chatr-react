@@ -4,6 +4,11 @@ export const ADD_CHANNEL = "ADD_CHANNEL";
 
  //messages
  export const SET_MESSAGES = "SET_MESSAGES";
+ export const ADD_MESSAGES = "ADD_MESSAGES";
 
 //user auth
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
+
+
+// Errors
+export const SET_ERRORS = "SET_ERRORS";

@@ -1,5 +1,5 @@
  //messages
- import { SET_MESSAGES} from "../actions";
+ import { SET_MESSAGES,ADD_MESSAGES} from "../actions";
 
  const initialState = [];
 
@@ -9,7 +9,11 @@ const reducer = (state = initialState, action) => {
       const messages = action.payload;
       return messages;
 
-    default:
+    case ADD_MESSAGES:
+      const message = action.payload;
+      return [...state, message];
+    
+      default:
       return state;
   }
 };
