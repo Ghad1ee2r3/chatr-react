@@ -4,10 +4,14 @@ import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchMessages, sendMessages } from "../redux/actions";
 
+//emoji
+import "emoji-mart/css/emoji-mart.css";
+import { Picker } from "emoji-mart";
+
 const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) => {
   const { CHANNEL_ID } = useParams();
   const [msg, setMsg] = useState("");
-
+  const [emojiView, setEmojiView]=useState(false);
   useEffect(() => {
     getMessages(CHANNEL_ID);
   }, [CHANNEL_ID]);
@@ -33,22 +37,48 @@ const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) =>
     console.log("here sum");
     event.preventDefault();
     sendMessage({ message: msg }, CHANNEL_ID);
+    //resetinput();
   };
+  //const resetinput=() =>{
+  //  setMsg("");
+  //}
+
+  const{ massegee}=msg
+  const selectemoji= emoji =>{
+   let obj=emoji.native
+    setMsg({ message: massegee+obj }, CHANNEL_ID)
+  }
+
+ 
+  const handleEmoji=()=>{
+    setEmojiView(!emojiView)
+  }
 
   return (
     <div>
       <p>{allmessages}</p>
       <p>
         <form onSubmit={handleSend}>
+        <div className="input-group">
+                <div className="input-group-append">
+                <button className="btn btn-outline-secondary" onClick={handleEmoji}>emojis</button>
+                </div>
           <input
             className="form-control"
             type="text"
             onChange={handleText}
           ></input>
+          </div>
           <button type="submit" className="btn btn-primary">
             Send
           </button>
         </form>
+        {
+          emojiView?
+          <span>
+          <Picker onSelect={selectemoji}/>
+          </span>:null
+          }
       </p>
     </div>
   );
