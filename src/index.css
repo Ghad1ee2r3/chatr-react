@@ -57,8 +57,6 @@ code {
   color: #ffffff;
 }
 
-.row {
-}
 #sidebar::-webkit-scrollbar {
   width: 10px;
   background-color: #222;
