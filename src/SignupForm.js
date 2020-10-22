@@ -23,6 +23,8 @@ const Signup = (props) => {
   if (props.user) return <Redirect to='/' />
 
   return (
+    <div>
+       <h3 className="text2">   WELCOME TO CHAT  </h3>
     <div className="col-6 mx-auto">
       <div className="card my-5">
         <div className="card-body">
@@ -61,6 +63,7 @@ const Signup = (props) => {
           </form>
         </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -18,7 +18,7 @@ const AddChannel = () => {
         </Modal>
       </div>
       
-      <input type="button" onClick={openModal} value="CREATE CHANNEL" />
+      <input type="button" class="btn btn-outline-danger" onClick={openModal} value="CREATE CHANNEL" />
        
       </div>
    

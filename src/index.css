@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #5ab6ad 100%);
 }
 
 code {
@@ -26,6 +27,13 @@ code {
   bottom: 0;
 }
 
+.div1 {
+  width: 100%;
+  height: 400px;
+  background-size: 100% 100%;
+  border-style: dotted dashed solid double red;
+  border: 1px dashed red;
+}
 .input1 {
   height: 40px;
   font-size: 16px;
@@ -35,7 +43,22 @@ code {
   border-radius: 15px;
   border: none;
 }
+.text1 {
+  color: #000000;
 
+  animation: text 3s 1;
+
+  width: 100%;
+  height: 100%;
+
+  left: 50%;
+  font-size: 100px;
+
+  color: #ffffff;
+}
+
+.row {
+}
 #sidebar::-webkit-scrollbar {
   width: 10px;
   background-color: #222;

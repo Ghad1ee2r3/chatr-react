@@ -12,7 +12,7 @@ const ChannelCard = ({ channel }) => (
       <div className="card-body">
         <p className="card-title">
           <span>{channel.name}</span>
-          <span> ,{channel.owner}</span>
+          <span>  {channel.owner}</span>
         </p>
         
       </div>
