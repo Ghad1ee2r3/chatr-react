@@ -56,15 +56,63 @@ code {
 
   color: #ffffff;
 }
+
+.conten-message {
+  display: flex;
+  position: relative;
+  padding-right: 30px;
+  border-radius: 20px;
+  margin: 10px 0;
+
+  width: 50%;
+  background-color: #c8c8c8;
+  font: 1em sans-serif;
+  text-transform: capitalize;
+}
+
+.conten-message time {
+  color: #777;
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+
+  font-size: 10px;
+  margin: 10px;
+}
+
+.message-username {
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.conten-message text {
+  color: #000000;
+  font-size: 15px;
+  margin: 10px;
+  float: left;
+}
 .message-item {
   /*card of each message*/
   display: flex;
 
   padding-right: 30px;
-  position: relative;
+
   margin: 10px 0;
   width: 50%;
   background-color: #c8c8c8;
+}
+.chat-r {
+  display: flex;
+}
+.chat-r .sp {
+  flex: 1;
+}
+
+.chat-l {
+  display: flex;
+}
+.chat-l .sp {
+  flex: 1;
 }
 
 #sidebar::-webkit-scrollbar {

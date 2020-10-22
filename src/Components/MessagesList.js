@@ -19,12 +19,16 @@ const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) =>
   //messages of one channel
   //const channelMessages = messages.filter((message) => message.channel == channel.id);
   const allmessages = messages.map((m) => (
-    <div className="message-item ">
-      <p className=".message-item-content">
-      {user.username==m.username?"me:": m.username+":"}</p>
-      <p>
-        {m.message} at {m.timestamp}
+    <div className="message">
+      
+      <p  >
+      {user.username==m.username?
+      <div className="message-username">me</div>:<div className="message-username">{m.username}:</div> }</p>
+     <div className="conten-message"> <p>
+      <text>{m.message} </text> <time>{m.timestamp}</time>
+       
       </p>
+      </div>
     </div>
   ));
 
