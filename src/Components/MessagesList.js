@@ -10,6 +10,7 @@ import { Picker } from "emoji-mart";
 
 const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) => {
   const { CHANNEL_ID } = useParams();
+  const [bot , setBot]=useState(false);
   const [msg, setMsg] = useState({message:""});
   const [emojiView, setEmojiView]=useState(false);
 
@@ -27,21 +28,25 @@ const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) =>
   //const channelMessages = messages.filter((message) => message.channel == channel.id);
 
   //test {user.username=="bot"? name="bot": "me"}
-  const lastItem = messages[messages.length - 1]
-  console.log(lastItem.message)
-  if (lastItem.message=="Hi"){
-    sendMessage({ message: "welcom to channel" }, CHANNEL_ID);
-  }
+  //const lastItem = messages[messages.length - 1]
+  //console.log(lastItem.message)
+  //if (lastItem.message=="Hi"){
+  //  sendMessage({ message: "welcom to channel" }, CHANNEL_ID);
+  //}
 
   //{getnameuser(m)}
   var name;
   const getnameuser= (m)=>{
-    if (user.username==m.username) { return"me"}
-    else {if (user.username=="bot"){return "bot" }else return m.username}
-  }
+    if (user.username==m.username) { if (bot){
+      setBot(false)
+      return "bot";
+    } else return"me"}
+    else return user.username}
+  
+  
   const allmessages = messages.map((m) => (
     <div>
-      {user.username==m.username? name="me": m.username}
+     {getnameuser(m)} 
      
       <p>
         {m.message} at {m.timestamp}
@@ -61,17 +66,18 @@ const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) =>
    console.log("here sum");
     event.preventDefault();
    //else
-     if (msg === "test") {
-      user.username="me"
+     if (msg === "Hi") {
+     // user.username="me"
       sendMessage({ message: msg }, CHANNEL_ID);
       alert(`
     WELCOM "${user.username="bot"}"
     `);
-    user.username="bot"
+    //user.username="bot"
     //sendMessage({ message: msg }, CHANNEL_ID);
     //name="bot"
-    sendMessage( {  message: 'Hi' },CHANNEL_ID);
-    user.username=user
+    setBot(true)
+    sendMessage( {  message: 'Hi , i am bot' },CHANNEL_ID);
+    //user.username=user
 
      // alert("Hello !");
     } else if (msg === "t") {
