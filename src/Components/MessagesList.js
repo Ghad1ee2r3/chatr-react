@@ -4,9 +4,12 @@ import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchMessages, sendMessages } from "../redux/actions";
 
+
+
 const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) => {
   const { CHANNEL_ID } = useParams();
   const [msg, setMsg] = useState("");
+ 
 
   useEffect(() => {
     getMessages(CHANNEL_ID);
@@ -43,7 +46,7 @@ const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) =>
     WELCOM "${user.username}"
     `);
      // alert("Hello !");
-    }  else if (msg === "t") {
+    } else if (msg === "t") {
       sendMessage( {  message: "test" },CHANNEL_ID);
     } else if (msg === "ge") {
       sendMessage( {  message: "good evening" },CHANNEL_ID);
