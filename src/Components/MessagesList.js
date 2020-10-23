@@ -10,8 +10,11 @@ import { Picker } from "emoji-mart";
 
 const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) => {
   const { CHANNEL_ID } = useParams();
-  const [msg, setMsg] = useState({message:""});
+  const [msg, setMsg] = useState({newMessage:""});
   const [emojiView, setEmojiView]=useState(false);
+
+  const [modal, setModal] = useState(false);
+  const [data, setData] = useState(null);
   useEffect(() => {
     getMessages(CHANNEL_ID);
   }, [CHANNEL_ID]);
@@ -36,28 +39,31 @@ const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) =>
   const handleSend = (event) => {
     console.log("here sum");
     event.preventDefault();
-    sendMessage({ message: msg }, CHANNEL_ID);
-    resetinput();
+    sendMessage({ newMessage: msg }, CHANNEL_ID);
+    setMsg({newMessage:""});
+   // resetinput();
   };
-  const resetinput=() =>{
-    setMsg({message:""});
-  }
+  //const resetinput=() =>{
+   
+  //}
 
   const{ massege}=msg
 
   const selectemoji= emoji =>{
    let obj=emoji.native
    console.log(obj)
+   console.log(massege)
    let m=massege+obj
+   console.log(m)
    //m.toString
    var data = JSON.stringify({m});
    //var data = {message:m.toString()}
-    setMsg({...msg,message:m}, CHANNEL_ID)
+    setMsg({...msg,newMessage:obj+msg})
   }
 
  
   const handleEmoji=()=>{
-    setEmojiView(!emojiView)
+    setEmojiView(true)
   }
 
   return (
@@ -75,16 +81,17 @@ const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) =>
             onChange={handleText}
           ></input>
           </div>
-          <button type="submit" className="btn btn-primary">
-            Send
-          </button>
-        </form>
-        {
+          {
           emojiView?
           <span>
           <Picker onSelect={selectemoji}/>
           </span>:null
           }
+          <button type="submit" className="btn btn-primary">
+            Send
+          </button>
+        </form>
+       
       </p>
     </div>
   );
