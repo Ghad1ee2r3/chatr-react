@@ -37,7 +37,19 @@ const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) =>
   const handleSend = (event) => {
     console.log("here sum");
     event.preventDefault();
-    sendMessage({ message: msg }, CHANNEL_ID);
+   
+    if (msg === "bot") {
+      alert(`
+    WELCOM "${user.username}"
+    `);
+     // alert("Hello !");
+    }  else if (msg === "t") {
+      sendMessage( {  message: "test" },CHANNEL_ID);
+    } else if (msg === "ge") {
+      sendMessage( {  message: "good evening" },CHANNEL_ID);
+    } else {
+      sendMessage({ message: msg }, CHANNEL_ID);
+    }
   };
 
   return (
