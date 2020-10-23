@@ -201,3 +201,31 @@ td button.btn {
   height: 100vh;
   line-height: 100vh;
 }
+
+.box {
+  position: absolute;
+  padding: 20px 50px 0px 30px;
+  color: rgb(116, 124, 142);
+  /* font-size: 15px; */
+  overflow-y: scroll;
+  height: 600px;
+  width: 100%;
+  /* box-sizing: border-box; */
+  /* border: "2px solid"; */
+}
+
+.sendForm {
+  position: fixed;
+  padding: 10px 10px 0px 10px;
+  bottom: 0;
+  width: 70%;
+  /* Height of the footer*/
+  height: 40px;
+  /* background: grey; */
+}
+#msgBox {
+  text-decoration: none;
+  text-decoration-line: none;
+  cursor: default;
+  color: black;
+}

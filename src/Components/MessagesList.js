@@ -2,90 +2,121 @@ import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchMessages, sendMessages } from "../redux/actions";
+import {
+  sendMessages,
+  //fetchMessages,
+  fetchNewMessages,
+  setChannel,
+} from "../redux/actions";
 
 
+import Messages from "./Messages";
+import NewMsg from "./newMessages";
 
-const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) => {
+//utils
+import { currentDate } from "../utils/currentDate";
+
+const MessagesList = ({
+  channels,
+  messages,
+  getMessages,
+  sendMessage,
+  getNewMessages,
+  user,
+}) => {
   const { CHANNEL_ID } = useParams();
   const [msg, setMsg] = useState("");
- 
+  const [text, settext] = useState("");
+
 
   useEffect(() => {
     getMessages(CHANNEL_ID);
+    settext("");
   }, [CHANNEL_ID]);
+
+  const fetchNew = () => {
+    let latest = currentDate();
+    //let latest = "2020 - 10 - 22";
+    console.log("current time ", latest);
+    getNewMessages(CHANNEL_ID, latest);
+  };
 
   //which channel?
   const channel = channels.find((channel) => channel.id === +CHANNEL_ID);
   if (!channel) return <Redirect to="/channels" />;
 
-  //messages of one channel
-  //const channelMessages = messages.filter((message) => message.channel == channel.id);
-  const allmessages = messages.map((m) => (
-    <div className="message">
-      
-      <p  >
-      {user.username==m.username?
-      <div className="message-username">me</div>:<div className="message-username">{m.username}:</div> }</p>
-     <div className="conten-message"> <p>
-      <text>{m.message} </text> <time>{m.timestamp}</time>
-       
-      </p>
-      </div>
-    </div>
-  ));
-
-  const handleText = (event) => setMsg(event.target.value);
+  const handleText = (event) => {
+    setMsg(event.target.value);
+    settext(event.target.value);
+  };
 
   const handleSend = (event) => {
-    console.log("here sum");
     event.preventDefault();
+
+    sendMessage({ message: msg }, CHANNEL_ID);
+    settext("");
+
    
-    if (msg === "bot") {
-      alert(`
-    WELCOM "${user.username}"
-    `);
-     // alert("Hello !");
-    } else if (msg === "t") {
-      sendMessage( {  message: "test" },CHANNEL_ID);
-    } else if (msg === "ge") {
-      sendMessage( {  message: "good evening" },CHANNEL_ID);
-    } else {
-      sendMessage({ message: msg }, CHANNEL_ID);
-    }
+//     if (msg === "bot") {
+//       alert(`
+//     WELCOM "${user.username}"
+//     `);
+//      // alert("Hello !");
+//     } else if (msg === "t") {
+//       sendMessage( {  message: "test" },CHANNEL_ID);
+//     } else if (msg === "ge") {
+//       sendMessage( {  message: "good evening" },CHANNEL_ID);
+//     } else {
+//       sendMessage({ message: msg }, CHANNEL_ID);
+//     }
+
   };
 
   return (
     <div>
-      <p>{allmessages}</p>
-      <p>
+      <div className="row">
+        <NewMsg fetchNew={fetchNew} />
+      </div>
+      <div className="message">
+        {<Messages key={CHANNEL_ID} user={user} messages={messages} />}
+      </div>
+      <div className="row">
         <form onSubmit={handleSend}>
-          <input
-            className="form-control"
-            type="text"
-            onChange={handleText}
-          ></input>
-          <button type="submit" className="btn btn-primary">
-            Send
-          </button>
+          <div className="sendForm input-group mb-3">
+            <input
+              id="userText"
+              value={text}
+              type="text"
+              className="form-control"
+              placeholder="Search"
+              onChange={handleText}
+            />
+            <div className="input-group-append">
+              <button className="btn btn-dark" type="submit">
+                Send
+              </button>
+            </div>{" "}
+          </div>
         </form>
-      </p>
+      </div>
     </div>
   );
 };
 
-const mapStateToProps = ({ channels, messages ,user }) => {
+const mapStateToProps = ({ channels, messages, user }) => {
   return {
     channels,
     messages,
-    user
+    user,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    getMessages: (CHANNEL_ID) => dispatch(fetchMessages(CHANNEL_ID)),
+    getMessages: (CHANNEL_ID) => dispatch(setChannel(CHANNEL_ID)),
     sendMessage: (newMessage, CHANNEL_ID) =>
       dispatch(sendMessages(newMessage, CHANNEL_ID)),
+    getNewMessages: (CHANNEL_ID, latest) =>
+      dispatch(fetchNewMessages(CHANNEL_ID, latest)),
   };
 };
 
