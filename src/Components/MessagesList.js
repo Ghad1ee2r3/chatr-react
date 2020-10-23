@@ -10,7 +10,7 @@ import { Picker } from "emoji-mart";
 
 const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) => {
   const { CHANNEL_ID } = useParams();
-  const [msg, setMsg] = useState({newMessage:""});
+  const [msg, setMsg] = useState({message:""});
   const [emojiView, setEmojiView]=useState(false);
 
   const [modal, setModal] = useState(false);
@@ -25,9 +25,24 @@ const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) =>
 
   //messages of one channel
   //const channelMessages = messages.filter((message) => message.channel == channel.id);
+
+  //test {user.username=="bot"? name="bot": "me"}
+  const lastItem = messages[messages.length - 1]
+  console.log(lastItem.message)
+  if (lastItem.message=="Hi"){
+    sendMessage({ message: "welcom to channel" }, CHANNEL_ID);
+  }
+
+  //{getnameuser(m)}
+  var name;
+  const getnameuser= (m)=>{
+    if (user.username==m.username) { return"me"}
+    else {if (user.username=="bot"){return "bot" }else return m.username}
+  }
   const allmessages = messages.map((m) => (
     <div>
-      {user.username==m.username? "me": m.username}
+      {user.username==m.username? name="me": m.username}
+     
       <p>
         {m.message} at {m.timestamp}
       </p>
@@ -38,10 +53,35 @@ const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) =>
 
   const handleSend = (event) => {
     console.log("here sum");
-    event.preventDefault();
-    sendMessage({ newMessage: msg }, CHANNEL_ID);
-    setMsg({newMessage:""});
+   // event.preventDefault();
+   // sendMessage({ newMessage: msg }, CHANNEL_ID);
+   // setMsg({newMessage:""});
    // resetinput();
+   /// mmm{user.username==m.username? name="me": m.username}
+   console.log("here sum");
+    event.preventDefault();
+   //else
+     if (msg === "test") {
+      user.username="me"
+      sendMessage({ message: msg }, CHANNEL_ID);
+      alert(`
+    WELCOM "${user.username="bot"}"
+    `);
+    user.username="bot"
+    //sendMessage({ message: msg }, CHANNEL_ID);
+    //name="bot"
+    sendMessage( {  message: 'Hi' },CHANNEL_ID);
+    user.username=user
+
+     // alert("Hello !");
+    } else if (msg === "t") {
+      sendMessage( {  message: "test" },CHANNEL_ID);
+    } else if (msg === "ge") {
+      sendMessage( {  message: "good evening" },CHANNEL_ID);
+    } else {
+      sendMessage({ message: msg }, CHANNEL_ID);
+    }
+  
   };
   //const resetinput=() =>{
    
@@ -58,7 +98,7 @@ const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) =>
    //m.toString
    var data = JSON.stringify({m});
    //var data = {message:m.toString()}
-    setMsg({...msg,newMessage:obj+msg})
+    setMsg({...msg,message:obj+msg})
   }
 
  
