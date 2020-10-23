@@ -37,10 +37,7 @@ const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) =>
   //{getnameuser(m)}
   var name;
   const getnameuser= (m)=>{
-    if (user.username==m.username) { if (bot){
-      setBot(false)
-      return "bot";
-    } else return"me"}
+    if (user.username==m.username) {  return"me"}
     else return user.username}
   
   
