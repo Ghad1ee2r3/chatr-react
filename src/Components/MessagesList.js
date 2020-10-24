@@ -2,18 +2,18 @@ import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
-//lib
+//libraries
 import lclStr from "local-storage";
 import Picker from "emoji-picker-react";
 
 //src
 import { sendMessages, fetchNewMessages, setChannel } from "../redux/actions";
-
+//components
 import Messages from "./Messages";
 import NewMsg from "./newMessages";
 
 //utils
-import { currentDate } from "../utils/currentDate";
+import { currentDate, capitalizeWords } from "../utils/utils";
 
 const MessagesList = ({
   channels,
@@ -36,6 +36,7 @@ const MessagesList = ({
     settext(lclStr.get(`${CHANNEL_ID}`));
   }, [CHANNEL_ID]);
 
+  //to get messages according to date
   const fetchNew = () => {
     let latest = currentDate();
     getNewMessages(CHANNEL_ID, latest);
@@ -45,22 +46,27 @@ const MessagesList = ({
   const channel = channels.find((channel) => channel.id === +CHANNEL_ID);
   if (!channel) return <Redirect to="/channels" />;
 
+  //to handel text in text field (send)
   const handleText = (event) => {
     setMsg(event.target.value);
     settext(event.target.value);
     lclStr.set(`${CHANNEL_ID}`, event.target.value);
   };
 
+  //to handel emoji in text field (send)
   const onEmojiClick = (event, emojiObject) => {
     setMsg(msg + emojiObject.emoji);
     settext(msg + emojiObject.emoji);
     lclStr.set(`${CHANNEL_ID}`, msg + emojiObject.emoji);
   };
 
+  // send the msg to the actions
   const handleSend = (event) => {
     event.preventDefault();
-    sendMessage({ message: msg }, CHANNEL_ID);
+    const toCapital = capitalizeWords(msg);
+    sendMessage({ message: toCapital }, CHANNEL_ID);
     settext("");
+    setMsg("");
     lclStr.set(`${CHANNEL_ID}`, "");
     //bot(msg);
     //setMybot(false);
@@ -85,6 +91,7 @@ const MessagesList = ({
     //     }
   };
 
+  //show emoji window and hide it
   const showEmoji = () => {
     console.log("here", chosenEmoji);
     if (chosenEmoji) {
