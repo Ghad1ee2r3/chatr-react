@@ -21,7 +21,7 @@ const setAuthToken = token => {
     }
 }
 
-export const login = (userData) => {
+export const login = (userData ,history) => {
     return async dispatch => {
         try {
             const responce = await instance.post('/login/', userData);
@@ -30,6 +30,7 @@ export const login = (userData) => {
             const {token} = responce.data
             dispatch(resetErrors());
             dispatch(setCurrentUser(token));
+            history.push("/channels")
         } catch (err) {
             console.error(err);
             dispatch({
@@ -40,17 +41,18 @@ export const login = (userData) => {
     }
 };
 
-export const signup = (userData) => {
+export const signup = (userData , history) => {
     return async dispatch => {
         try{
             const responce = await instance.post("/signup/", userData)
             //const responce = await axios.post("http://127.0.0.1:8000/signup/", userData)
             const {token} = responce.data;
             dispatch(setCurrentUser(token));
+            history.push("/channels")
         }catch(error){
             console.error("wrong signup");
         }
-        dispatch(login(userData))
+        dispatch(login(userData ,history))
     };
 };
 
