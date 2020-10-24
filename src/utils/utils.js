@@ -14,3 +14,7 @@ export function capitalizeWords(string) {
     return a.toUpperCase();
   });
 }
+
+export function isNumeric(s) {
+  return !isNaN(s - parseFloat(s));
+}

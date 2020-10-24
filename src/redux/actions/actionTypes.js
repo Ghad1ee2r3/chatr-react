@@ -8,3 +8,7 @@ export const ADD_CHANNEL = "ADD_CHANNEL";
 
 //user auth
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
+
+
+// Errors
+export const SET_ERRORS = "SET_ERRORS";

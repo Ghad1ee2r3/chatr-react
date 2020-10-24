@@ -6,14 +6,14 @@ const SearchBar = ({ onChange }) => (
   <div>
     <div className="input-group my-3">
       <input
-        className="form-control"
-        type="text" placeholder="Search channel"
-        onChange={event => onChange(event.target.value)}
+        className="ml-3"
+        type="text"
+        placeholder="Search channel"
+        onChange={(event) => onChange(event.target.value)}
+        style={{ width: "60%" }}
       />
       <div className="input-group-append">
-        <span className="input-group-text">
-          
-        </span>
+        <span className="input-group-text"></span>
       </div>
     </div>
   </div>

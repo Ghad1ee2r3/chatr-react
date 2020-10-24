@@ -1,8 +1,8 @@
-import React, { useState }from "react";
+import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Login from "../LoginForm";
-import Logout from '../Logout';
+import Logout from "../Logout";
 import { logout } from "../redux/actions";
 import SearchBar from "./SearchBar";
 // Logo
@@ -13,9 +13,7 @@ import ChannelList from "./ChannelList";
 import ChannelCard from "./ChannelCard";
 import AddChannel from "./AddChannel";
 
-
 const Sidebar = ({ user, logout, channels }) => {
-  
   const [query, setQuery] = useState("");
   const filterChannel = () => {
     return channels.filter((channel) => {
@@ -28,7 +26,7 @@ const Sidebar = ({ user, logout, channels }) => {
   return (
     <div id="sidebar">
       <SearchBar onChange={setQuery} />
-     
+
       <section>
         <h4 className="menu-item active">
           <NavLink to="/channels">Create Channel</NavLink>
