@@ -1,12 +1,14 @@
 import React, { useState , useEffect } from "react";
-import { Link,Redirect } from "react-router-dom";
+import { Link,Redirect , useHistory  } from "react-router-dom";
 import { connect } from "react-redux";
 import { login ,resetErrors} from "./redux/actions";
+
 
 
 //import { postAuthor, resetErrors } from "./redux/actions/index";
 
 const Login = props => {
+  let history= useHistory();
   const [userData, setUserData] = useState({
     username: "",
     password: "",
@@ -24,7 +26,8 @@ const Login = props => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.login(userData);
+    props.login(userData ,history );
+   // history.push("/channels");
   };
 
   const { username, password } = userData;
@@ -96,7 +99,7 @@ const mapStateToProps = (state , {user}) => {
 
 const mapDispatchToProps = dispatch => ({
   resetErrors: () => dispatch(resetErrors()),
-  login: userData => dispatch(login(userData))
+  login: (userData ,history) => dispatch(login(userData , history))
  
 });
 export default connect(
