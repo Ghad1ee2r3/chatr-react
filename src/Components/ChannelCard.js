@@ -8,7 +8,7 @@ import { setChannel } from "../redux/actions";
 
 const ChannelCard = ({ channel }) => (
   <div className="col-lg-4 col-md-6 col-12">
-    <Link to={`/channels/${channel.id}`} onClick={() => setChannel(channel.id)}>
+    <Link to={`/channels/${channel.id}`}>
       {channel.image_url ? (
         <img src={channel.image_url} alt="" />
       ) : (

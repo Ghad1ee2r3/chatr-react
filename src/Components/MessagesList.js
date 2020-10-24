@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 //libraries
 import lclStr from "local-storage";
 import Picker from "emoji-picker-react";
@@ -37,8 +39,8 @@ const MessagesList = ({
   }, [CHANNEL_ID]);
 
   //to get messages according to date
+  let latest = currentDate();
   const fetchNew = () => {
-    let latest = currentDate();
     getNewMessages(CHANNEL_ID, latest);
   };
 
@@ -104,7 +106,9 @@ const MessagesList = ({
   return (
     <div>
       <div>
-        <NewMsg fetchNew={fetchNew} />
+        <Link to={`/channels/${CHANNEL_ID}/${latest}`}>
+          <NewMsg fetchNew={fetchNew} />
+        </Link>
       </div>
       <div>
         {

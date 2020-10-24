@@ -21,7 +21,7 @@ let timer = null;
 export const setChannel = (CHANNEL_ID) => async (dispatch) => {
   clearInterval(timer);
   timer = setInterval(() => dispatch(fetchMessages(CHANNEL_ID)), 5000);
-  dispatch(fetchMessages(CHANNEL_ID));
+  //dispatch(fetchMessages(CHANNEL_ID));
 };
 
 export const fetchNewMessages = (CHANNEL_ID, latest) => async (dispatch) => {
@@ -45,7 +45,6 @@ export const sendMessages = (newMessage, CHANNEL_ID) => async (dispatch) => {
     dispatch({
       type: ADD_MESSAGES,
       payload: message,
-      //channel=channel
     });
   } catch (error) {
     console.error(error);
