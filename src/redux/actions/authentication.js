@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import { SET_CURRENT_USER, SET_ERRORS } from "./actionTypes";
 //import axios from "axios"
 import { fetchChannels } from "./channels";
-import { fetchMessages } from "./messages";
+//import { fetchMessages } from "./messages";
 
 import instance from "./instance";
 

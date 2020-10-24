@@ -47,7 +47,7 @@ const NewMsg = ({ fetchNew, latest }) => {
       }
     }
     setTxt("");
-    return fetchNew(latest);
+    fetchNew(latest);
   };
 
   return (
