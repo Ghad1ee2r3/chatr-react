@@ -1,9 +1,11 @@
 import React from "react";
 
 const NewMsg = ({ fetchNew }) => (
-  <button className="btn btn-dark" type="submit" onClick={fetchNew}>
-    New
-  </button>
+  <div className="newForm">
+    <button className="btn btn-dark" type="submit" onClick={fetchNew}>
+      New
+    </button>
+  </div>
 );
 
 export default NewMsg;

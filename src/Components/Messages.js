@@ -20,7 +20,7 @@ const Messages = ({ messages, user }) => {
   const allmessages = messages.map((m) => (
     <div>
       <p>
-        {user.username == m.username ? (
+        {user.username === m.username ? (
           <div className="message-username">me</div>
         ) : (
           <div className="message-username">{m.username}:</div>

@@ -229,3 +229,19 @@ td button.btn {
   cursor: default;
   color: black;
 }
+.newForm {
+  position: fixed;
+  padding: 20px 50px 0px 10px;
+  top: 0;
+  /* width: 70%;
+   Height of the footer
+  height: 40px; */
+  right: 0;
+  /* background: grey; */
+}
+.emoji {
+  position: fixed;
+  padding: 150px 50px 0px 10px;
+  top: 0;
+  right: 0;
+}
