@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(135deg, #f5f7fa 0%, #5ab6ad 100%);
+  background-image: linear-gradient(135deg, #f5f7fa 0%, rgb(64, 123, 139) 100%);
 }
 
 code {
@@ -13,10 +13,16 @@ code {
     monospace;
 }
 
+.text1 {
+  color: #000000;
+
+  text-align: center;
+  color: #ffffff;
+}
 #sidebar {
   position: fixed;
   float: left;
-  background: #303030;
+  background: rgb(29, 38, 54);
   height: 100vh;
   max-width: inherit;
   border-right: 2px solid #555;
@@ -32,7 +38,7 @@ code {
   height: 400px;
   background-size: 100% 100%;
   border-style: dotted dashed solid double red;
-  border: 1px dashed red;
+  border: 1px dashed rgb(29, 38, 54);
 }
 .input1 {
   height: 40px;
@@ -108,6 +114,9 @@ code {
   flex: 1;
 }
 
+.formm {
+  background-color: #b12323;
+}
 .chat-l {
   display: flex;
 }
