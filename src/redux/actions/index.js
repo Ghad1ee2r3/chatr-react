@@ -20,4 +20,5 @@ export {
   setChannel,
 } from "./messages";
 
-// Authentication
+// error
+export { resetErrors } from "./errors";

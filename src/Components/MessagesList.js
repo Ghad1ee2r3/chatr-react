@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { timer } from "../redux/actions/messages";
 
 //libraries
 import lclStr from "local-storage";
@@ -16,7 +17,7 @@ import NewMsg from "./newMessages";
 
 //utils
 import { currentDate, capitalizeWords } from "../utils/utils";
-
+let latest = currentDate();
 const MessagesList = ({
   channels,
   messages,
@@ -39,8 +40,9 @@ const MessagesList = ({
   }, [CHANNEL_ID]);
 
   //to get messages according to date
-  let latest = currentDate();
-  const fetchNew = () => {
+
+  const fetchNew = (latest) => {
+    clearInterval(timer);
     getNewMessages(CHANNEL_ID, latest);
   };
 
@@ -106,9 +108,8 @@ const MessagesList = ({
   return (
     <div>
       <div>
-        <Link to={`/channels/${CHANNEL_ID}/${latest}`}>
-          <NewMsg fetchNew={fetchNew} />
-        </Link>
+        {/* </div><Link to={`/channels/${CHANNEL_ID}/${latest}`}> */}
+        <NewMsg latest={latest} fetchNew={fetchNew} />
       </div>
       <div>
         {
