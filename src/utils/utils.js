@@ -8,3 +8,9 @@ export function currentDate(separator = "-") {
     month < 10 ? `0${month}` : `${month}`
   }${separator}${date}`;
 }
+
+export function capitalizeWords(string) {
+  return string.replace(/(?:^|\s)\S/g, function (a) {
+    return a.toUpperCase();
+  });
+}
