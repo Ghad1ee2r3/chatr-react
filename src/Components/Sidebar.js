@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { connect } from "react-redux";
-import Login from "../LoginForm";
-import Logout from "../Logout";
 import { logout } from "../redux/actions";
 import SearchBar from "./SearchBar";
 // Logo
 //import logo from "./assets/theindex.svg";
 
 //component
-import ChannelList from "./ChannelList";
 import ChannelCard from "./ChannelCard";
-import AddChannel from "./AddChannel";
 
 const Sidebar = ({ user, logout, channels }) => {
   const [query, setQuery] = useState("");
@@ -29,20 +25,23 @@ const Sidebar = ({ user, logout, channels }) => {
 
       <section>
         <h4 className="menu-item active">
-          <NavLink to="/channels">Create Channel</NavLink>
+          <NavLink to="/login">Create Channel</NavLink>
         </h4>
       </section>
       <div className="menu-item active">
         {user ? (
           <div>
-            <div className="row justify-content-centre">
-              <Link
-                to="/logout"
-                className="btn btn-dark m-4 float-left"
-                onClick={() => logout()}
-              >
-                Logout
-              </Link>
+            <div className="container">
+              <div className="row">
+                <Link
+                  style={{ alignSelf: "center" }}
+                  to="/logout"
+                  className="btn btn-dark m-4 float-left"
+                  onClick={() => logout()}
+                >
+                  Logout
+                </Link>
+              </div>
             </div>
             <div>
               <Link to="/logout">{ChannelCardss}</Link>

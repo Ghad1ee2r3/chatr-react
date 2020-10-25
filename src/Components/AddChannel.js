@@ -21,7 +21,7 @@ const AddChannel = () => {
 
       <input
         type="button"
-        class="btn btn-outline-danger"
+        className="btn btn-outline-danger"
         onClick={openModal}
         value="CREATE CHANNEL"
       />
