@@ -46,11 +46,11 @@ const Sidebar = ({ user, logout, channels }) => {
           </div>
         ) : (
           <div>
-            <Link to="/login" className="btn btn-info m-2 float-left">
+            <Link to="/login" className="btn btn-primary m-2 float-left">
               Login
             </Link>
 
-            <Link to="/signup" className="btn btn-success m-2 float-left">
+            <Link to="/signup" className="btn btn-secondary m-2 float-left">
               Signup
             </Link>
           </div>

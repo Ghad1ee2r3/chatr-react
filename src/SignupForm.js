@@ -27,14 +27,14 @@ const Signup = (props) => {
   };
 
   const { username, password } = userData;
-  if (props.user) return <Redirect to="/" />;
+  if (props.user) return <Redirect to="/channels" />;
 
   const errors = props.errors;
-  if (!props.user) return <Redirect to="/channels" />;
+  //if (!props.user) return <Redirect to="/channels" />;
   return (
     <div className="col-6 mx-auto">
       <div className="card my-5">
-        <div className="card-body">
+        <div className="card-body cards rounded">
           <form onSubmit={handleSubmit}>
             {!!errors.length && (
               <div className="alert alert-danger" role="alert">
@@ -68,10 +68,10 @@ const Signup = (props) => {
               />
             </div>
 
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary cards btn-block">
               Signup
             </button>
-            <Link to="/login" className="btn btn-link my-2 my-sm-0">
+            <Link to="/login" className="btn cards btn-outline-secondary btn-block">
               I already have an account
             </Link>
           </form>
