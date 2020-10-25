@@ -235,8 +235,8 @@ td button.btn {
 #msgBox {
   text-decoration: none;
   text-decoration-line: none;
-  cursor: default;
-  color: black;
+  /* cursor: default;
+  color: black; */
 }
 .newForm {
   position: fixed;
@@ -250,7 +250,7 @@ td button.btn {
 }
 .emoji {
   position: fixed;
-  padding: 150px 50px 0px 10px;
-  top: 0;
+  margin: 150px 50px 0px 10px;
   right: 0;
+  margin-bottom: unset;
 }

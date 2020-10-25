@@ -9,12 +9,6 @@ export function currentDate(separator = "-") {
   }${separator}${date}`;
 }
 
-export function capitalizeWords(string) {
-  return string.replace(/(?:^|\s)\S/g, function (a) {
-    return a.toUpperCase();
-  });
-}
-
 export function isNumeric(s) {
   return !isNaN(s - parseFloat(s));
 }
