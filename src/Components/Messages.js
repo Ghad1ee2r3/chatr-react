@@ -28,9 +28,17 @@ const Messages = ({ messages, user }) => {
       </p>
       <div className="conten-message">
         {" "}
-        <p>
-          <text>{m.message} </text> <time>{m.timestamp}</time>
-        </p>
+        {m.message.startsWith("http") ? (
+          <span>
+            {" "}
+            <img width="400px" height="400px" src={m.message} />
+            <time>{m.timestamp}</time>
+          </span>
+        ) : (
+          <p>
+            <text>{m.message} </text> <time>{m.timestamp}</time>
+          </p>
+        )}
       </div>
     </div>
   ));

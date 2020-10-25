@@ -30,6 +30,7 @@ const Login = (props) => {
 
   const { username, password } = userData;
   if (Cookies.get("token")) return <Redirect to="/channels" />; //ASK ASK ASK
+  //if (props.user) return <Redirect to="/channels" />; //ASK ASK ASK
   //if (!props.user) return <Redirect to="/login" />;
 
   const errors = props.errors;

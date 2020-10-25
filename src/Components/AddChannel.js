@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-responsive-modal";
-import 'react-responsive-modal/styles.css';
+import "react-responsive-modal/styles.css";
 import ChannelForm from "./ChannelForm";
 
 const AddChannel = () => {
@@ -14,18 +14,19 @@ const AddChannel = () => {
     <div className="col-lg-4 col-md-6 col-12">
       <div>
         <Modal open={open} onClose={closeModal} center>
+          {" "}
           <ChannelForm closeModal={closeModal} />
         </Modal>
       </div>
-      
-      <input type="button" class="btn btn-outline-danger" onClick={openModal} value="CREATE CHANNEL" />
-       
-      </div>
-   
+
+      <input
+        type="button"
+        class="btn btn-outline-danger"
+        onClick={openModal}
+        value="CREATE CHANNEL"
+      />
+    </div>
   );
 };
 
 export default AddChannel;
-
-
-

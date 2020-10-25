@@ -10,20 +10,6 @@ import App from "../App";
 //import Loading from "./Loading";
 
 const ChannelList = ({ channels, user }) => {
-  const [query, setQuery] = useState("");
-
-  const filterChannel = () => {
-    return channels.filter((channel) => {
-      return channel.name.toLowerCase().includes(query.toLowerCase());
-    });
-  };
-
-  //if (loading) return <Loading />;
-
-  // const ChannelCardss = filterChannel().map((channel) => (
-  //   <ChannelCard key={channel.id} channel={channel} />
-  // ));
-
   return (
     <div className="div1">
       <h3 className="text1">LET CREATE YOUR OWN channel </h3>

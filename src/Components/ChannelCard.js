@@ -12,11 +12,12 @@ const ChannelCard = ({ channel }) => (
       <Link to={`/channels/${channel.id}`}>
         {channel.image_url ? (
           <div className="col-lg-3 col-md-2 col-2 mr-2">
-            <img src={channel.image_url} alt="" />
+            <img className="personal" src={channel.image_url} alt="" />
           </div>
         ) : (
           <div className="col-lg-3 col-md-2 col-12">
             <img
+              className="personal"
               src="https://cdn2.iconfinder.com/data/icons/user-profile/100/User-512.png"
               alt=""
             />
