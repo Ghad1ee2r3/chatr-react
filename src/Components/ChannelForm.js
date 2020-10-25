@@ -18,11 +18,10 @@ const ChannelForm = ({ closeModal, postChannel }) => {
     setChannel({ ...channel, [event.target.name]: event.target.value });
 
   return (
-    <div className="mt-5 p-2">
-      <form onSubmit={submitChannel}>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text">Name</span>
+    <div className="mt-5 p-2 cards rounded">
+      <form onSubmit={submitChannel} className="">
+        <div className="input mb-3">
+            <span className="input-text">Name:</span>
           </div>
           <input
             type="text"
@@ -30,11 +29,14 @@ const ChannelForm = ({ closeModal, postChannel }) => {
             name="name"
             onChange={onTextchange}
           />
-          <div> </div>
-          <button type="submit" className=" ml-1 btn btn-primary">
-            create
+         <div>
+           <br/>
+         <button type="submit" className="btn btn-primary btn-block">
+            Create
           </button>
         </div>
+       
+      
       </form>
     </div>
   );

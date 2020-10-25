@@ -11,15 +11,16 @@ import App from "../App";
 
 const ChannelList = ({ channels, user }) => {
   return (
-    <div className="div1">
-      <h3 className="text1">LET CREATE YOUR OWN channel </h3>
-      <div className="row">
-        <div className="col-2"> {user && <AddChannel />}</div>
-        <div className="col-10"></div>
-        {/* {ChannelCardss} */}
+    <div>
+    <div class="container">
+      <h1 class="text"><em>Create Your Own Channel.</em></h1>
+  </div>      <div className="row">
+          <div className="col-2"> {user && <AddChannel />}</div>
+          <div className="col-10"></div>
+          {/* {ChannelCardss} */}
+        </div>
       </div>
-    </div>
-  );
+    );
 };
 
 const mapStateToProps = ({ channels, user }) => ({

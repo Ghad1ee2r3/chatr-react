@@ -42,3 +42,12 @@
   border-color: #d8dce4;
   color: #8cdeec;
 }
+
+.text{
+  color: #1b2842;
+  font-size: 100px;
+}
+
+.button{
+  margin-left: 30px;
+}
