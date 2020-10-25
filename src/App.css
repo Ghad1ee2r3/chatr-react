@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.cards {
+  background-color: #1b2842;
+  border-color: #d8dce4;
+  color: #8cdeec;
+}
