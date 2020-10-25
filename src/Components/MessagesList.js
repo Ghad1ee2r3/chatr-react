@@ -28,7 +28,6 @@ const MessagesList = ({
   const { CHANNEL_ID } = useParams();
   const [msg, setMsg] = useState("");
   const [text, settext] = useState(lclStr.get(`${CHANNEL_ID}`));
-  //const [bot, setMybot] = useState(false);
   const [chosenEmoji, setChosenEmoji] = useState(false);
 
   //functions
@@ -117,11 +116,18 @@ const MessagesList = ({
 
   //show emoji window and hide it
   const showEmoji = () => {
-    console.log("here", chosenEmoji);
-    if (chosenEmoji) {
-      setChosenEmoji(false);
+    // console.log("here f", chosenEmoji);
+    // if (chosenEmoji) {
+    //   setChosenEmoji(false);
+    // } else {
+    //   setChosenEmoji(true);
+    //   console.log("here t", chosenEmoji);
+    // }
+    var x = document.getElementById("em");
+    if (x.style.display === "none") {
+      x.style.display = "block";
     } else {
-      setChosenEmoji(true);
+      x.style.display = "none";
     }
   };
   return (
@@ -164,9 +170,9 @@ const MessagesList = ({
           </div>
         </form>
       </div>
-      <span className="emoji">
-        {chosenEmoji && <Picker onEmojiClick={onEmojiClick} />}
-      </span>
+      <div className="emoji" id="em" style={{ display: "block" }}>
+        {<Picker onEmojiClick={onEmojiClick} />}
+      </div>
     </div>
   );
 };
