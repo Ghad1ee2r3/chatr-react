@@ -20,7 +20,7 @@ export const fetchMessages = (CHANNEL_ID) => async (dispatch) => {
 export let timer = null;
 export const setChannel = (CHANNEL_ID) => async (dispatch) => {
   clearInterval(timer);
-  timer = setInterval(() => dispatch(fetchMessages(CHANNEL_ID)), 5000);
+  timer = setInterval(() => dispatch(fetchMessages(CHANNEL_ID)), 10000);
   //dispatch(fetchMessages(CHANNEL_ID));
 };
 

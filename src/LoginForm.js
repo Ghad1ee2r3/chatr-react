@@ -32,7 +32,7 @@ const Login = (props) => {
 
   if (Cookies.get("token")) return <Redirect to="/channels" />; //ASK ASK ASK
 
-  //if (props.user) return <Redirect to="/channels" />;
+  //if (props.user) return <Redirect to="/channels" />; //ASK ASK ASK
 
   //if (!props.user) return <Redirect to="/login" />;
 
@@ -51,7 +51,9 @@ const Login = (props) => {
               </div>
             )}
             <div className="form-group">
-              <label htmlFor="username" className="">Username</label>
+              <label htmlFor="username" className="">
+                Username
+              </label>
               <input
                 type="text"
                 className="form-control"
@@ -78,7 +80,10 @@ const Login = (props) => {
             <button type="submit" className="btn btn-primary cards btn-block">
               Login
             </button>
-            <Link to="/signup" className="btn cards btn-outline-secondary btn-block">
+            <Link
+              to="/signup"
+              className="btn cards btn-outline-secondary btn-block"
+            >
               Signup
             </Link>
           </form>
