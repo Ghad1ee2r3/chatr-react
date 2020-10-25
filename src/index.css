@@ -250,7 +250,7 @@ td button.btn {
 }
 .emoji {
   position: fixed;
-  margin: 150px 50px 0px 10px;
+  /* margin: 150px 50px 0px 10px; */
   right: 0;
-  margin-bottom: unset;
+  margin-bottom: 0;
 }

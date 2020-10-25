@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import swal from "sweetalert";
-import DatePicker, { CalendarContainer } from "react-datepicker";
+// import DatePicker, { CalendarContainer } from "react-datepicker";
 
 import { currentDate, isNumeric } from "../utils/utils";
 let latest = currentDate();
@@ -16,24 +16,24 @@ function show(pid) {
 
 const NewMsg = ({ fetchNew }) => {
   const [txt, setTxt] = useState("");
-  const [startDate, setStartDate] = useState(new Date());
+  // const [startDate, setStartDate] = useState(new Date());
 
   const handletxt = (event) => {
     setTxt(event.target.value);
   };
 
-  const MyContainer = ({ className, children }) => {
-    return (
-      <div style={{ padding: "16px", background: "#216ba5", color: "#fff" }}>
-        <CalendarContainer className={className}>
-          <div style={{ background: "#f0f0f0" }}>
-            What is your favorite day?
-          </div>
-          <div style={{ position: "relative" }}>{children}</div>
-        </CalendarContainer>
-      </div>
-    );
-  };
+  // const MyContainer = ({ className, children }) => {
+  //   return (
+  //     <div style={{ padding: "16px", background: "#216ba5", color: "#fff" }}>
+  //       <CalendarContainer className={className}>
+  //         <div style={{ background: "#f0f0f0" }}>
+  //           What is your favorite day?
+  //         </div>
+  //         <div style={{ position: "relative" }}>{children}</div>
+  //       </CalendarContainer>
+  //     </div>
+  //   );
+  // };
 
   const handleDate = () => {
     show("userDate");

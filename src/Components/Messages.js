@@ -31,7 +31,7 @@ const Messages = ({ messages, user }) => {
         {m.message.startsWith("http") ? (
           <span>
             {" "}
-            <img width="400px" height="400px" src={m.message} />
+            <img width="550px" height="400px" src={m.message} />
             <time>{m.timestamp}</time>
           </span>
         ) : (
