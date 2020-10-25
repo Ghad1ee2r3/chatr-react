@@ -29,8 +29,11 @@ const Login = (props) => {
   };
 
   const { username, password } = userData;
+
   if (Cookies.get("token")) return <Redirect to="/channels" />; //ASK ASK ASK
+
   //if (props.user) return <Redirect to="/channels" />; //ASK ASK ASK
+
   //if (!props.user) return <Redirect to="/login" />;
 
   const errors = props.errors;
@@ -38,7 +41,7 @@ const Login = (props) => {
   return (
     <div className="col-6 mx-auto">
       <div className="card my-5">
-        <div className="card-body">
+        <div className="card-body cards rounded">
           <form onSubmit={handleSubmit}>
             {!!errors.length && (
               <div className="alert alert-danger" role="alert">
@@ -48,7 +51,9 @@ const Login = (props) => {
               </div>
             )}
             <div className="form-group">
-              <label htmlFor="username">Username</label>
+              <label htmlFor="username" className="">
+                Username
+              </label>
               <input
                 type="text"
                 className="form-control"
@@ -72,10 +77,13 @@ const Login = (props) => {
               />
             </div>
 
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary cards btn-block">
               Login
             </button>
-            <Link to="/signup" className="btn btn-link my-2 my-sm-0">
+            <Link
+              to="/signup"
+              className="btn cards btn-outline-secondary btn-block"
+            >
               Signup
             </Link>
           </form>
