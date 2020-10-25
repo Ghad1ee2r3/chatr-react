@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { login, resetErrors } from "./redux/actions";
+import Cookies from "js-cookie";
 
 //import { postAuthor, resetErrors } from "./redux/actions/index";
 
@@ -28,8 +29,8 @@ const Login = (props) => {
   };
 
   const { username, password } = userData;
-  if (props.user) return <Redirect to="/channels" />;
-  if (!props.user) return <Redirect to="/channels" />;
+  if (Cookies.get("token")) return <Redirect to="/channels" />; //ASK ASK ASK
+  //if (!props.user) return <Redirect to="/login" />;
 
   const errors = props.errors;
 

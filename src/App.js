@@ -31,7 +31,7 @@ const App = () => (
           <Route path="/login">
             <Login />
           </Route>
-          <Redirect to="/login" />
+          <Redirect to="/channels" />
         </Switch>
       </div>
     </div>

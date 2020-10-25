@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+
 import { timer } from "../redux/actions/messages";
 
 //libraries
 import lclStr from "local-storage";
 import Picker from "emoji-picker-react";
+import swal from "sweetalert";
 
 //src
 import { sendMessages, fetchNewMessages, setChannel } from "../redux/actions";
@@ -15,9 +16,6 @@ import { sendMessages, fetchNewMessages, setChannel } from "../redux/actions";
 import Messages from "./Messages";
 import NewMsg from "./newMessages";
 
-//utils
-import { currentDate, capitalizeWords } from "../utils/utils";
-let latest = currentDate();
 const MessagesList = ({
   channels,
   messages,
@@ -42,6 +40,7 @@ const MessagesList = ({
   //to get messages according to date
 
   const fetchNew = (latest) => {
+    console.log(latest);
     clearInterval(timer);
     getNewMessages(CHANNEL_ID, latest);
   };
@@ -67,33 +66,54 @@ const MessagesList = ({
   // send the msg to the actions
   const handleSend = (event) => {
     event.preventDefault();
-    const toCapital = capitalizeWords(msg);
-    sendMessage({ message: toCapital }, CHANNEL_ID);
-    settext("");
-    setMsg("");
-    lclStr.set(`${CHANNEL_ID}`, "");
-    //bot(msg);
-    //setMybot(false);
+    if (validate(msg)) {
+      if (!shortcuts(msg)) {
+        console.log("validate(msg)", validate(msg));
+        sendMessage({ message: msg }, CHANNEL_ID);
+      }
 
-    // function bot(g) {
-    //   if (g == "hello") {
-    //     setMybot(true);
-    //     sendMessage({ message: "Hi, I am bot" }, CHANNEL_ID);
-    //   }
-    // }
-    //     if (msg === "bot") {
-    //       alert(`
-    //     WELCOM "${user.username}"
-    //     `);
-    //      // alert("Hello !");
-    //     } else if (msg === "t") {
-    //       sendMessage( {  message: "test" },CHANNEL_ID);
-    //     } else if (msg === "ge") {
-    //       sendMessage( {  message: "good evening" },CHANNEL_ID);
-    //     } else {
-    //       sendMessage({ message: msg }, CHANNEL_ID);
-    //     }
+      settext("");
+    } else {
+      console.log("validate(msg) false", validate(msg));
+      settext("Try  nicer words!");
+      setMsg("");
+      lclStr.set(`${CHANNEL_ID}`, "");
+    }
   };
+
+  function validate(g) {
+    let badWords = ["ugly"];
+    let m = g.toLowerCase().split(" ").join(" ");
+    if (m.includes(badWords)) {
+      return false;
+    } else return true;
+  }
+  function shortcuts(g) {
+    if (msg === "bot") {
+      swal({
+        title: `WELCOM, ${user.username}`,
+        button: "back",
+      });
+      return true;
+    }
+    if (msg === "gm") {
+      sendMessage({ message: "good morning" }, CHANNEL_ID);
+      return true;
+    }
+    if (msg === "ge") {
+      sendMessage({ message: "good evening" }, CHANNEL_ID);
+      return true;
+    }
+    if (msg.toLowerCase().split(" ").join(" ") === "show shortcuts") {
+      swal({
+        title: "Shortcuts",
+        text: "gm : Good Morning\n ge : Good Evening",
+        icon: "info",
+        button: "back",
+      });
+      return true;
+    } else return false;
+  }
 
   //show emoji window and hide it
   const showEmoji = () => {
@@ -104,12 +124,11 @@ const MessagesList = ({
       setChosenEmoji(true);
     }
   };
-
   return (
     <div>
       <div>
         {/* </div><Link to={`/channels/${CHANNEL_ID}/${latest}`}> */}
-        <NewMsg latest={latest} fetchNew={fetchNew} />
+        <NewMsg fetchNew={fetchNew} />
       </div>
       <div>
         {
@@ -145,9 +164,9 @@ const MessagesList = ({
           </div>
         </form>
       </div>
-      <div className="emoji">
+      <span className="emoji">
         {chosenEmoji && <Picker onEmojiClick={onEmojiClick} />}
-      </div>
+      </span>
     </div>
   );
 };

@@ -27,10 +27,10 @@ const Signup = (props) => {
   };
 
   const { username, password } = userData;
-  if (props.user) return <Redirect to="/" />;
+  if (props.user) return <Redirect to="/channels" />;
 
   const errors = props.errors;
-  if (!props.user) return <Redirect to="/channels" />;
+  //if (!props.user) return <Redirect to="/login" />;
   return (
     <div className="col-6 mx-auto">
       <div className="card my-5">

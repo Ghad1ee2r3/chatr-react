@@ -35,14 +35,18 @@ const Sidebar = ({ user, logout, channels }) => {
       <div className="menu-item active">
         {user ? (
           <div>
-            <Link
-              to="/logout"
-              className="btn btn-dark m-4 float-left"
-              onClick={() => logout()}
-            >
-              Logout
-            </Link>
-            <Link to="/logout">{ChannelCardss}</Link>
+            <div className="row justify-content-centre">
+              <Link
+                to="/logout"
+                className="btn btn-dark m-4 float-left"
+                onClick={() => logout()}
+              >
+                Logout
+              </Link>
+            </div>
+            <div>
+              <Link to="/logout">{ChannelCardss}</Link>
+            </div>
           </div>
         ) : (
           <div>
