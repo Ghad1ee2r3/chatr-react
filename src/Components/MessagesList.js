@@ -65,7 +65,7 @@ const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) =>
    //else
      if (msg === "Hi") {
      // user.username="me"
-      sendMessage({ message: msg }, CHANNEL_ID);
+     // sendMessage({ message: msg }, CHANNEL_ID);
       alert(`
     WELCOM "${user.username="bot"}"
     `);
@@ -73,7 +73,7 @@ const MessagesList = ({ channels, messages, getMessages, sendMessage ,user }) =>
     //sendMessage({ message: msg }, CHANNEL_ID);
     //name="bot"
     setBot(true)
-    sendMessage( {  message: 'Hi , i am bot' },CHANNEL_ID);
+    //sendMessage( {  message: 'Hi , i am bot' },CHANNEL_ID);
     //user.username=user
 
      // alert("Hello !");
